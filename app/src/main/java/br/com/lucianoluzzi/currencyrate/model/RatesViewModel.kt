@@ -13,7 +13,7 @@ import model.BaseViewModel
 import java.util.concurrent.TimeUnit
 
 class RatesViewModel : BaseViewModel() {
-    private val rateRepository = RateRepository()
+    lateinit var rateRepository: RateRepository
     private val _rates = MutableLiveData<RateModel>().apply {
         RateModel(0f, 0f)
     }
@@ -34,7 +34,7 @@ class RatesViewModel : BaseViewModel() {
                         }
 
                         override fun onError(e: Throwable) {
-                            Log.d("RATE_REPOSITORY", e.stackTrace.toString())
+                            Log.d("RATE_REPOSITORY", e.message)
                         }
                     })
             }
