@@ -1,4 +1,4 @@
-package model
+package br.com.lucianoluzzi.currencyrate.model
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
-import repository.RateRepository
-import repository.RatesResponse
+import br.com.lucianoluzzi.currencyrate.repository.RateRepository
+import br.com.lucianoluzzi.currencyrate.repository.RatesResponse
 
 class RatesViewModel : BaseViewModel() {
     private val rateRepository = RateRepository()

@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import br.com.lucianoluzzi.currencyrate.R
 import br.com.lucianoluzzi.currencyrate.databinding.ActivityMainBinding
-import model.RatesViewModel
+import br.com.lucianoluzzi.currencyrate.model.RatesViewModel
 
 class MainActivity : AppCompatActivity() {
 
