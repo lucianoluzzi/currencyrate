@@ -18,10 +18,12 @@ class RatesViewModel(private val rateRepository: RateRepository) : BaseViewModel
     val rates: LiveData<RateModel> = _rates
 
     fun getRates() {
-        val disposable = Observable.interval(0, 1, TimeUnit.MINUTES)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
+        val interval = Observable.interval(0, 1, TimeUnit.MINUTES)
+        with(interval) {
+            subscribeOn(Schedulers.io())
+            observeOn(AndroidSchedulers.mainThread())
+            
+            val disposable = subscribe {
                 rateRepository.getRates()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -36,7 +38,8 @@ class RatesViewModel(private val rateRepository: RateRepository) : BaseViewModel
                         }
                     })
             }
-        addDisposable(disposable)
+            addDisposable(disposable)
+        }
     }
 
     fun stop() {
