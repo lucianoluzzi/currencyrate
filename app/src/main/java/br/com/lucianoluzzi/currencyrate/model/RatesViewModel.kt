@@ -10,10 +10,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import model.BaseViewModel
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.inject
 import java.util.concurrent.TimeUnit
 
-class RatesViewModel : BaseViewModel() {
-    lateinit var rateRepository: RateRepository
+class RatesViewModel : BaseViewModel(), KoinComponent {
+    private val rateRepository: RateRepository by inject()
     private val _rates = MutableLiveData<RateModel>().apply {
         RateModel(0f, 0f)
     }
