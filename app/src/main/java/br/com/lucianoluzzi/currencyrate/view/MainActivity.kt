@@ -9,7 +9,7 @@ import br.com.lucianoluzzi.currencyrate.model.RatesViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-    val ratesViewModel: RatesViewModel by viewModel()
+    private val ratesViewModel: RatesViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

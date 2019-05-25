@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
 import model.BaseViewModel
 import java.util.concurrent.TimeUnit
 
-class RatesViewModel(val rateRepository: RateRepository) : BaseViewModel() {
+class RatesViewModel(private val rateRepository: RateRepository) : BaseViewModel() {
     private val _rates = MutableLiveData<RateModel>().apply {
         RateModel(0f, 0f)
     }
