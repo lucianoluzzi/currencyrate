@@ -40,4 +40,8 @@ class RatesViewModel : BaseViewModel() {
             }
         addDisposable(disposable)
     }
+
+    fun stop() {
+        onCleared()
+    }
 }

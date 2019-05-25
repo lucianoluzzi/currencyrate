@@ -25,4 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         ratesViewModel.getRates()
     }
+
+    override fun onPause() {
+        super.onPause()
+        ratesViewModel.stop()
+    }
 }
