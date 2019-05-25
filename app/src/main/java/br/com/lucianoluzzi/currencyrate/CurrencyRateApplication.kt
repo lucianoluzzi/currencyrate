@@ -1,15 +1,21 @@
 package br.com.lucianoluzzi.currencyrate
 
 import android.app.Application
+import br.com.lucianoluzzi.currencyrate.model.RatesViewModel
 import br.com.lucianoluzzi.currencyrate.repository.RateRepository
-import org.koin.android.ext.android.startKoin
-import org.koin.dsl.module.module
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class CurrencyRateApplication : Application() {
     private val currencyRateModule = module {
+        viewModel {
+            RatesViewModel(get())
+        }
+
         single {
             RateRepository()
         }
@@ -29,6 +35,8 @@ class CurrencyRateApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, listOf(currencyRateModule))
+        startKoin {
+            modules(currencyRateModule)
+        }
     }
 }

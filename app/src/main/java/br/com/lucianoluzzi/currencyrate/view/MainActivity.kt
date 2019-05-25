@@ -3,17 +3,16 @@ package br.com.lucianoluzzi.currencyrate.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import br.com.lucianoluzzi.currencyrate.R
 import br.com.lucianoluzzi.currencyrate.databinding.ActivityMainBinding
 import br.com.lucianoluzzi.currencyrate.model.RatesViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var ratesViewModel: RatesViewModel
+    val ratesViewModel: RatesViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ratesViewModel = ViewModelProviders.of(this).get(RatesViewModel::class.java)
 
         val mainActivityBinding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         mainActivityBinding.lifecycleOwner = this
