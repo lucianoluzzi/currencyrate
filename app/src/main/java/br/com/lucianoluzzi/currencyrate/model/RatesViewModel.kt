@@ -8,6 +8,7 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import br.com.lucianoluzzi.currencyrate.repository.RateRepository
 import br.com.lucianoluzzi.currencyrate.repository.RatesResponse
+import model.BaseViewModel
 
 class RatesViewModel : BaseViewModel() {
     private val rateRepository = RateRepository()
