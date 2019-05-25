@@ -10,12 +10,11 @@ import repository.RateRepository
 import repository.RatesResponse
 
 class RatesViewModel : BaseViewModel() {
+    private val rateRepository = RateRepository()
     private val _rates = MutableLiveData<RateModel>().apply {
         RateModel(0f, 0f)
     }
-
     val rates: LiveData<RateModel> = _rates
-    private val rateRepository = RateRepository()
 
     fun getRepositories() {
         val disposable = rateRepository.getRates().subscribeOn(Schedulers.io())
