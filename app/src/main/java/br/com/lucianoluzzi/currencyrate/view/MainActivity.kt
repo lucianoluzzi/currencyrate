@@ -23,6 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        ratesViewModel.getRepositories()
+        ratesViewModel.getRates()
     }
 }
